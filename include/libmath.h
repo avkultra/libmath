@@ -7,4 +7,5 @@ namespace libmath
     int multiplication(int a, int b);
     int division(int a, int b, int& c);
     int power(const int& a, const int& pow);
+    int factorial(int n);
 }
