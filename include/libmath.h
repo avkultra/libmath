@@ -85,26 +85,41 @@ namespace libmath
 
     inline int power(const int& a, const int& pow)
     {
-	if (pow < 0)
-	{
-	    return S_FALSE;
-	}
+        if (pow < 0)
+        {
+            return S_FALSE;
+        }
 
-	if (pow == 0)
-	{
-	    return 1;
-	}
+        if (pow == 0)
+        {
+            return 1;
+        }
 
-	int res = 1;
-	for (int i = 0; i < pow; ++i)
-	{
-	    if (res > INT_MAX / a)
-	    {
-		return S_OVERFLOW;
-	    }
-	    res = res * a;
-	}
-	return res;
+        if (a == 0)
+        {
+            return 0;
+        }
+
+        if (a == 1)
+        {
+            return 1;
+        }
+
+        if (a == -1)
+        {
+            return (pow % 2 == 0) ? 1 : -1;
+        }
+
+        int res = 1;
+        for (int i = 0; i < pow; ++i)
+        {
+            if (res > INT_MAX / a)
+            {
+                return S_OVERFLOW;
+            }
+            res = res * a;
+        }
+        return res;
     }
 
     inline int factorial(int n)
